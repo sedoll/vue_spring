@@ -1,0 +1,201 @@
+/* Body 기본 스타일 */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Top Bar 스타일 */
+#topBar {
+    background-color: #333;
+    padding: 10px 0;
+    color: #fff;
+}
+
+#topBar .cta {
+    text-align: right;
+}
+
+.header_login {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 8px 15px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.header_login:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Header 스타일 */
+#header {
+    background-color: #fff;
+    border-bottom: 2px solid #eaeaea;
+    padding: 20px 0;
+}
+
+#header .logo img {
+    max-height: 60px;
+}
+
+#header .navbar {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#header .navbar li {
+    margin-left: 20px;
+}
+
+#header .navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+#header .navbar a:hover {
+    color: #007bff;
+}
+
+/* Quick Menu 스타일 */
+.quickMenu {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.quickMenu .quick_title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.quickMenu .quick_btn ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.quickMenu .quick_btn ul li {
+    margin-bottom: 10px;
+}
+
+.quickMenu .quick_btn ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.quickMenu .quick_top a {
+    color: #fff;
+    font-size: 12px;
+}
+
+/* 로그인 폼 스타일 */
+.container-login {
+    background-color: #fff;
+    padding: 40px;
+    margin: 100px auto;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.container-login h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.form-login {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.form-login input {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #f7f7f7;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.form-login input:focus {
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 5px #007bff;
+}
+
+.form-login label {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    pointer-events: none;
+    font-size: 16px;
+    color: #999;
+    transition: all 0.3s;
+}
+
+.form-login input:focus + label span,
+.form-login input:valid + label span {
+    transform: translateY(-50px);
+    font-size: 12px;
+    color: #007bff;
+}
+
+.login-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+.login-text {
+    font-size: 14px;
+    margin-top: 20px;
+    color: #333;
+}
+
+.login-text a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+
+/* 에러 메시지 스타일 */
+p[style*="color:red"] {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+p[style*="color:blue"] {
+    margin-top: 20px;
+    font-size: 14px;
+}
+

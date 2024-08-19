@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+<th:block th:fragment="header">
+    <!--    <th:block sec:authorize="isAuthenticated()">-->
+    <th:block sec:authorize="hasAuthority('ADMIN')">
+        <div class="hasRole">
+            <h2 style="margin: 0; padding: 0; line-height: 80px">📢 관리자 권한으로 로그인되었습니다.</h2>
+        </div>
+    </th:block>
+    <!--    </th:block>-->
+
+    <!-- ======= Top Bar ======= -->
+    <section id="topBar" class="d-flex align-items-center">
+        <div class="container ">
+            <div class="cta">
+                <th:block sec:authorize="isAnonymous()"> <!--/* 비 로그인 상태 */-->
+                    <a th:href="@{/login}" class="header_login" style="background: none">로그인</a>
+                    <a th:href="@{/join}" class="header_login" style="background: none">회원가입</a>
+                </th:block>
+                <th:block sec:authorize="isAuthenticated()"> <!--/* 로그인 상태 */-->
+                    <p class="topBar-name">반갑습니다!</p>
+                    <p class="topBar-name" sec:authentication="principal"></p>
+                    <p class="topBar-name"> 님 🤓 </p>
+                    <a th:href="@{/myPage}" class="header_login" style="background: none">마이페이지</a>
+                    <a th:href="@{/logout}" class="header_login" style="background: none">로그아웃</a>
+                </th:block>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center" style="height: auto;">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                <a th:href="@{/}">
+                    <img th:src="@{/assets/img/logo.PNG}" id="logo" alt="로고 이미지"/>
+                </a>
+            </div>
+            <!-- navbar -->
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" th:href="@{/course/list}">강의</a></li>
+                </ul>
+            </nav>
+            <!-- navbar end-->
+
+            <!-- quickMenu -->
+            <th:block sec:authorize="isAuthenticated()">
+                <div class="quickMenu">
+                    <div class="quick_title">
+                        Quick
+                        <br>
+                        Menu
+                    </div>
+                    <div class="quick_btn">
+                        <th:block sec:authorize="hasAuthority('USER')">
+                            <ul>
+                                <li class="quick01">
+                                    <a th:href="@{/myPage}">
+                                        <p>마이페이지</p>
+                                    </a>
+                                </li>
+                                <li class="quick02">
+                                    <a th:href="@{/mycourse/list}">
+                                        <p>나의 강의실</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </th:block>
+                    </div>
+                    <div class="quick_top">
+                        <a href="#">TOP</a>
+                    </div>
+                </div>
+            </th:block>
+            <!-- quickMenu end-->
+
+        </div>
+    </header>
+    <!-- End Header -->
+
+
+</th:block>
+</body>

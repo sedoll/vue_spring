@@ -1,0 +1,133 @@
+/* General Styles */
+body, html {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+input, button {
+    outline: none;
+    border: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Form Styling */
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 30px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Form Elements */
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+}
+
+.form-control:focus {
+    background-color: white;
+    border: 1px solid #007bff;
+}
+
+.form-label.blind {
+    display: none;
+}
+
+.form-outline {
+    position: relative;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+    font-size: 1rem;
+}
+
+.check_btn, .btn1 {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.check_btn:hover, .btn1:hover {
+    background-color: #0056b3;
+}
+
+/* Info Text */
+.info {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+#msg {
+    font-size: 0.875rem;
+    color: red;
+}
+
+.no_check {
+    color: red;
+}
+
+/* Submit Button */
+.login-btn {
+    background-color: #28a745;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #218838;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .card-body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .check_btn, .btn1, .login-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

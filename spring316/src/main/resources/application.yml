@@ -1,0 +1,48 @@
+server:
+  port: 8080
+  error:
+    path: /error/
+  servlet:
+    context-path: /test
+
+spring:
+  application:
+    name: spring316
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:3306/test1
+    username: root
+    password: 1234
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      suffix: classpath:/templates/
+  servlet:
+    multipart:
+      enabled: false
+      max-file-size: 100MB
+      max-request-size: 500MB
+      location: c:\\dev
+  thymeleaf:
+    enabled: true
+    check-template-location: true
+    cache: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.spring316.dto
+  mapper-locations: mappers/**/*.xml
+
+logging:
+  level:
+    com.spring316: info
+    org.hibernate.type.descriptor.sql: info
+    org.springframework.security: info

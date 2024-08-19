@@ -1,0 +1,60 @@
+<th:block th:fragment="head">
+    <!-- 메타포 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=dege">
+    <meta http-equiv="Author" content="교육 콘텐츠 제작팀">
+    <meta http-equiv="Publisher" content="교육 제작자">
+    <meta http-equiv="Copyright" content="Copyright@gmail.com">
+
+    <!-- 검색엔진 최적화(SEO:Search Engeen) -->
+    <meta name="Subject" content="교육">
+    <meta name="Keyword" content="교육, 커뮤니티">
+    <meta name="Description" content="교육 커뮤니티">
+    <meta name="Robots" content="index, follow">
+
+    <!-- 오픈그래프 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="교육">
+    <meta property="og:description" content="앞선 생각으로 더 큰 미래의 교육을 준비">
+
+    <!-- 기타설정 -->
+    <!-- 트위터 -->
+    <meta name="twitter:card" content="picture">
+    <meta name="twitter:title" content="교육">
+    <meta name="twitter:description" content="앞선 생각으로 더 큰 미래의 교육을 준비">
+    <!-- IE 계열 브라우저 -->
+    <meta name="msapplication-TileColor" content="#fff">
+    <!--   <meta name="msapplication-TileImage" th:attr="content=@{/images/favicon/favicon-32x32.png}">
+       &lt;!&ndash; theme meta &ndash;&gt;
+       <meta name="theme-name" content="classimax" />
+
+       &lt;!&ndash; 파비콘 설정 :32X32 자주 사용 &ndash;&gt;
+       &lt;!&ndash; 표준 파비콘 &ndash;&gt;
+       <link rel="shortcut icon" th:th:href="@{/images/favicon/favicon-16x16.png}">
+       &lt;!&ndash; 애플 계열 모바일 &ndash;&gt;
+       <link rel="apple-touch-ico-precomposed" th:th:href="@{/images/favicon/apple-touch-icon.png}">
+
+       &lt;!&ndash; 파이어폭스, 오페라 또는 구형 크롬/사파리 &ndash;&gt;
+       <link rel="icon" th:th:href="@{/images/favicon/favicon-16x16.png}" sizes="16x16">
+       <link rel="icon" th:th:href="@{/images/favicon/favicon-32x32.png}" sizes="32x32">
+       <link rel="icon" th:th:href="@{/images/favicon/favicon-48x48.png}" sizes="48x48">
+       <link rel="icon" th:th:href="@{/images/favicon/favicon-64x64.png}" sizes="64x64">
+       <link rel="icon" th:th:href="@{/images/favicon/favicon-96x96.png}" sizes="96x96">-->
+
+    <!-- csrf -->
+    <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+    <meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/join.css}">
+
+    <style>
+        textarea {
+            resize: none;
+        }
+    </style>
+</th:block>

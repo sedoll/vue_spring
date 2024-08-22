@@ -6,17 +6,20 @@ server:
     context-path: /test
 
 spring:
+  profiles:
+    active: local
   application:
     name: spring316
-  datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://127.0.0.1:3306/test1
-    username: root
-    password: 1234
+  graphql:
+    cors:
+      allowed-headers: "*"
+      allowed-methods: "*"
+      allow-credentials: true
   mvc:
     static-path-pattern: /static/**
     view:
-      suffix: classpath:/templates/
+      prefix: classpath:/templates/
+      suffix: .html
   servlet:
     multipart:
       enabled: false

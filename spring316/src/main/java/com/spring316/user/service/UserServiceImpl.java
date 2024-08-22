@@ -10,14 +10,15 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Log4j2
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -109,29 +110,6 @@ public class UserServiceImpl implements UserService {
         User user2 = user.orElseThrow();
         user2.roleUpdate(userDTO);
         userRepository.save(user2);
-    }
-
-    @Override
-    public int loginPro(String id) {
-        int pass = 0;
-        User user = userRepository.getId(id);
-        LocalDateTime local = LocalDateTime.now().minusDays(30);
-        if (local.isAfter(user.getLoginAt())) {
-            user.setStatus(Status.REST);
-            userRepository.save(user);
-            pass = 2;
-        } else {
-            if (user.getStatus().equals(Status.ACTIVE)) {
-                user.setLoginAt(LocalDateTime.now());
-                userRepository.save(user);
-                pass = 1;
-            } else if (user.getStatus().equals(Status.REST)) {
-                pass = 2;
-            } else if (user.getStatus().equals(Status.OUT)) {
-                pass = 3;
-            }
-        }
-        return pass;
     }
 
     @Override

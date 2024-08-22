@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:3306/test1
+    username: root
+    password: 1234
+  graphql:
+    cors:
+      allowed-origins:
+        http://localhost:3000

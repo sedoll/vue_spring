@@ -1,5 +1,6 @@
 package com.spring316.config;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,7 +16,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import java.util.Arrays;
+import java.util.List;
 
 @Log4j2
 @Configuration
@@ -25,7 +26,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .cors(AbstractHttpConfigurer::disable)
+//                .cors(AbstractHttpConfigurer::disable)
                 // 특정 URL에 대한 권한 설정.
                 .authorizeHttpRequests((authorizeRequests) -> {
                     authorizeRequests
@@ -81,13 +82,25 @@ public class SecurityConfig {
     }
     @Bean
     public PasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(); }
+    @Value("${spring.graphql.cors.allowed-headers}")
+    private String allowedHeaders;
+
+    @Value("${spring.graphql.cors.allowed-methods}")
+    private String allowedMethods;
+
+    @Value("${spring.graphql.cors.allow-credentials}")
+    private boolean allowCredentials;
+
+    @Value("${spring.graphql.cors.allowed-origins}")
+    private List<String> allowedOrigins;
+
     @Bean
-    CorsConfigurationSource corsConfigurationSource() {
+    public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("*"));
-        configuration.setAllowedMethods(Arrays.asList("*"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
-        configuration.setAllowCredentials(true);
+        configuration.setAllowedHeaders(List.of(allowedHeaders));
+        configuration.setAllowedMethods(List.of(allowedMethods));
+        configuration.setAllowedOriginPatterns(allowedOrigins);
+        configuration.setAllowCredentials(allowCredentials);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;

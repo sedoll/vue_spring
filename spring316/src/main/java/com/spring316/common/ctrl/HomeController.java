@@ -63,33 +63,6 @@ public class HomeController {
         return "/user/active";
     }
 
-
-
-
-    @GetMapping("/status")
-    public String status(Model model, Principal principal){
-        String id = principal.getName();
-        int pass = userService.loginPro(id);
-        if (pass == 1) {
-            model.addAttribute("msg", "환영합니다! 로그인되었습니다 \uD83E\uDD13");
-            model.addAttribute("url", "/team16");
-            return "/alert";
-        } else if (pass == 2) {
-            model.addAttribute("msg", "해당 계정은 휴면계정입니다. 휴면을 풀어주세요.");
-            model.addAttribute("url", "/team16/active");
-            return "/alert";
-        } else if (pass==3){
-            model.addAttribute("msg", "해당 계정은 탈퇴한 계정입니다.");
-            model.addAttribute("url", "/team16/logout");
-            return "/alert";
-        } else {
-            model.addAttribute("msg", "로그인 정보가 맞지 않습니다.");
-            model.addAttribute("url", "/team16/login");
-            return "/alert";
-        }
-    }
-
-
     @GetMapping("/join")
     public String JoinForm(Model model){
         return "/user/join";
